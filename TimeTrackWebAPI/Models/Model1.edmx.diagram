@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd10f13d97c54b5caf57cf5535683856" Name="Diagram1">
+        <EntityTypeShape EntityType="ActivityTrackerModel.Activity" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivityTrackerModel.Department" Width="1.75" PointX="7.875" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivityTrackerModel.Process" Width="1.75" PointX="7.875" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivityTrackerModel.ProcessCategory" Width="2" PointX="2.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivityTrackerModel.ProcessWindow" Width="2" PointX="2.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ActivityTrackerModel.User" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="ActivityTrackerModel.FK_Activity_ProcessIDs" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivityTrackerModel.FK_Activity_ProcessWindowTitleIDs" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivityTrackerModel.FK_Activity_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivityTrackerModel.FK_Users_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ActivityTrackerModel.FK_Process_Categories" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace TimeTrack
 {
-    public static class GetProcessRunning
+    public static class ProcessState
     {
 
         // Following MSDN article on GetForegroundWindow function used to assist with getting process name
@@ -19,6 +19,9 @@ namespace TimeTrack
 
         [DllImport("user32.dll")]
         private static extern Int32 GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        [DllImport("user32.dll")]
+        private static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
 
         public static string GetActiveProcess()
@@ -41,15 +44,17 @@ namespace TimeTrack
             return "Unknown";
         }
 
-        private static Process GetProcessByHandle(IntPtr hwnd)
+        public static string GetActiveWindowTitle()
         {
-            try
+            const int noOfChars = 256;
+            StringBuilder Buff = new StringBuilder(noOfChars);
+            IntPtr handle = GetForegroundWindow();
+
+            if (GetWindowText(handle, Buff, noOfChars) > 0)
             {
-                uint processID;
-                GetWindowThreadProcessId(hwnd, out processID);
-                return Process.GetProcessById((int)processID);
+                return Buff.ToString();
             }
-            catch { return null; }
+            return null;
         }
 
     }

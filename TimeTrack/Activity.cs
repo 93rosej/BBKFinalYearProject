@@ -6,30 +6,20 @@ using System.Threading.Tasks;
 
 namespace TimeTrack
 {
-    class Activity
+    public class Activity
     {
 
-        public static int activityID = 0;
+        public int activityID { get; set; }
         public string userName { get; set; }
-        public DateTime startTime { get; set; }
-        public DateTime endTime { get; set; }
-        public string startTimeString { get; set; }
-        public string endTimeString { get; set; }
-        public int duration { get; set; }
+        public string startTime { get; set; }
+        public string endTime { get; set; }
+        public int activityDuration { get; set; }
 
         public Activity()
         {
-            activityID++;
-            this.userName = Environment.UserName;
-            this.startTime = DateTime.Now;
-            this.startTimeString = startTime.ToString();
-        }
-
-        public void ActivityEnd()
-        {
-            this.endTime = DateTime.Now;
-            this.endTimeString = endTime.ToString();
-            TimeSpan duration = this.endTime.Subtract(this.startTime);
+            this.userName = userName;
+            this.startTime = startTime;
+            this.activityDuration = activityDuration;
         }
 
     }
